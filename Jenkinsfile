@@ -5,7 +5,7 @@ pipeline {
             steps {
                 echo 'Cloning Repo' 
                 git url : "https://github.com/22251a1235/exam2.git"
-                branch : "master"
+                branch : 'master'
             }
         }
         stage('Build') {
@@ -15,9 +15,11 @@ pipeline {
             }
         }
         stage('Run') {
-            echo 'Running a container'
-            bat 'docker rm -f mycontainer || exit 0'
-            bat 'docker run -d -p 5000:5000 --name mycontainer mywebapp'
+            steps { 
+                echo 'Running a container'
+                bat 'docker rm -f mycontainer || exit 0'
+                bat 'docker run -d -p 5000:5000 --name mycontainer mywebapp'
+            }
         }
     }
     post {
