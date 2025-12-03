@@ -5,7 +5,7 @@ pipeline {
             steps {
                 echo 'Cloning Repo' 
                 git url : "https://github.com/22251a1235/exam2.git"
-                branch : 'master'
+                branch : "master"
             }
         }
         stage('Build') {
